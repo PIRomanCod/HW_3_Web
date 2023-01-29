@@ -7,12 +7,7 @@ def factorize(*number: tuple) -> list:
     t0 = time()
     for el in number:
         t1 = time()
-        i = 1
-        result = []
-        while i <= el:
-            if el % i == 0:
-                result.append(i)
-            i += 1
+        result = [i for i in range(1, el + 1) if el % i == 0]
         logging.debug(f"input element: {el}, time done: {time() - t1} s result: {result}")
         output.append(result)
     logging.debug(f"full time: {time() - t0} s")

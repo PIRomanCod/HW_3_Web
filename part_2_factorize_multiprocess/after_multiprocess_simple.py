@@ -9,13 +9,8 @@ def worker(queue: Queue, result: list):
     t1 = time()
     val = queue.get()
     i = 1
-    result_list = []
-    while i <= val:
-        if val % i == 0:
-            result_list.append(i)
-        i += 1
-    result.append(result_list)
-    print(f"Process with value: {val}, done in: {time() - t1} s, result: {result_list}")
+    result = [i for i in range(1, val + 1) if val % i == 0]
+    print(f"Process with value: {val}, done in: {time() - t1} s, result: {result}")
     sys.exit(0)
 
 
